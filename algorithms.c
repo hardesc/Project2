@@ -27,7 +27,7 @@ void algorithm(int *arr, int size, int value, int version, FILE *file) {
             outputArr = algorithm_1(arr, outputArr, size, value);
             break;
         case 2 :
-            //algorithm_2(arr, size, print_option, file);
+            algorithm_2(arr, outputArr, size, value);
             break;
         case 3 :
             //algorithm_3(arr, size, print_option, file);
@@ -110,6 +110,25 @@ int *algorithm_1(int *arr, int *outputArr, int size, int value) {
     return outputArr;
     
 }
+
+int *algorithm_2(int *arr, int *outputArr, int size, int value) {
+    
+    int index;
+    
+    //set index to largest coin value
+    index = size - 1;
+    
+    while (index >= 0) {
+        if (arr[index] <= value) {
+            outputArr[index] = value / arr[index];
+            value -= arr[index] * outputArr[index];
+        }
+        index--;
+    }
+    return outputArr;
+}
+
+
 //returns the sum of all elements in the array of ints
 int sumArray(int *arr, int size) {
     

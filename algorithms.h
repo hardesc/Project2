@@ -18,6 +18,8 @@ void print_results(int *arr, int size, int print_option, FILE *file);
 
 int *algorithm_1(int *arr, int *outputArr, int size, int value);
 
+int *algorithm_2(int *arr, int *outputArr, int size, int value);
+
 int sumArray(int *arr, int size);
 
 int isCoin(int *arr, int size, int v);
