@@ -27,13 +27,10 @@ void algorithm(int *arr, int size, int value, int version, FILE *file) {
             outputArr = algorithm_1(arr, outputArr, size, value);
             break;
         case 2 :
-            algorithm_2(arr, outputArr, size, value);
+            outputArr = algorithm_2(arr, outputArr, size, value);
             break;
         case 3 :
-            //algorithm_3(arr, size, print_option, file);
-            break;
-        case 4 :
-            //algorithm_4(arr, size, print_option, file);
+            outputArr = algorithm_3(arr, outputArr, size, value);
             break;
     }
     
@@ -125,6 +122,19 @@ int *algorithm_2(int *arr, int *outputArr, int size, int value) {
         }
         index--;
     }
+    return outputArr;
+}
+
+int *algorithm_3(int *arr, int *outputArr, int size, int value) {
+    
+/*****************************************************************
+ *                                                               *
+ *                                                               *
+ *         ********** ALGORITHM 3 CODE GOES HERE ********        *
+ *                                                               *
+ *                                                               *
+ *                                                               *
+ *****************************************************************/
     return outputArr;
 }
 
