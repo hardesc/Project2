@@ -9,6 +9,7 @@
 #include "algorithms.h"
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 
 void algorithm(int *arr, int size, int value, int version, FILE *file) {
 
@@ -126,15 +127,52 @@ int *algorithm_2(int *arr, int *outputArr, int size, int value) {
 }
 
 int *algorithm_3(int *arr, int *outputArr, int size, int value) {
-    
-/*****************************************************************
- *                                                               *
- *                                                               *
- *         ********** ALGORITHM 3 CODE GOES HERE ********        *
- *                                                               *
- *                                                               *
- *                                                               *
- *****************************************************************/
+    int i, p, min, C[value], TempArr[value], min_count=0, index, n, j;
+
+    C[0] = 0;
+    for(p=1;p<=value;p++)
+    {
+        min = INT_MAX; //maximum integer current machine supports
+        for(i=0;i<size;i++)
+        {
+            if(arr[i] <= p)
+            {
+                if(1+C[p-arr[i]]<min)
+                {
+                    min = 1+C[p-arr[i]];
+                } //end if(1+outputArr...)
+            } //end if(arr[i] <= p)
+        } //end for(i)
+        C[p] = min;
+    } //end for(p)
+    min_count = C[p-1];
+    index = p-1;
+    n = 0;
+    for(i=value;i>=0;i--)
+    {
+        if(C[i] < C[index])
+        {
+            for(j=0;j<size;j++)
+            {
+                if( (index-i) == arr[j])
+                {
+                    TempArr[n] = index-i;
+                    index = i;
+                    n++;
+                }
+            }
+        }
+    }
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<min_count;j++)
+        {
+            if(TempArr[j] == arr[i])
+            {
+                outputArr[i]++;
+            }
+        }
+    }
     return outputArr;
 }
 
