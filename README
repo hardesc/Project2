@@ -1,0 +1,7 @@
+To compile:
+
+gcc Project2.c algorithms.c -o Project2
+
+To run:
+
+./Project2 <input filename> <algorithm number>
